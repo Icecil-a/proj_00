@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,8 +26,8 @@ public class UserController {
     @Resource(name = "userService")
     private UserService userService;
     
-    @Autowired
-    private BCryptPasswordEncoder pwdEncoder;
+//    @Autowired
+//    private BCryptPasswordEncoder pwdEncoder;
     
     
 	/*
@@ -64,14 +62,15 @@ public class UserController {
 	public String insertUserInfo(HttpServletRequest req, HttpServletResponse res, UserVO vo) throws Exception {
 		
 		// 비밀번호 암호화
-//		Encoder encoder = Base64.getEncoder();
-//		
-//		byte bytePwd[] = vo.getPwd().getBytes();		
-//		String pwd =  encoder.encodeToString(bytePwd);
+		Encoder encoder = Base64.getEncoder();
 		
-		String inputPwd = vo.getPwd();
-		String pwd = pwdEncoder.encode(inputPwd);
-		vo.setPwd(pwd);
+		byte bytePwd[] = vo.getPwd().getBytes();		
+		String pwd =  encoder.encodeToString(bytePwd);
+		
+		// BCryptPasswordEncoder 이용
+//		String inputPwd = vo.getPwd();
+//		String pwd = pwdEncoder.encode(inputPwd);
+//		vo.setPwd(pwd);
 		
 	
 		userService.insertUserInfo(vo);
