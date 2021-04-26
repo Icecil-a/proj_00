@@ -83,7 +83,7 @@
 			<div class="login_part_text text-center">
 				<div class="login_part_text_iner">
 					<h2>Welcome!</h2>
-					<a href="login.html" class="btn_3">로그인하기</a>
+					<a href="/user/login.do" class="btn_3">로그인하기</a>
 				</div>
 			</div>
 		</div>
