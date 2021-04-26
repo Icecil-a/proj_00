@@ -82,7 +82,7 @@
 		<div class="col-lg-3 col-md-3">
 			<div class="login_part_text text-center">
 				<div class="login_part_text_iner">
-					<h2>Welcome !</h2>
+					<h2>Welcome!</h2>
 					<a href="login.html" class="btn_3">로그인하기</a>
 				</div>
 			</div>
