@@ -80,7 +80,7 @@
                                 </li>
 <%-- 								<c:choose><c:when test=""> --%>
 	                               <li> <a href="/user/signUp.do"><span class="flaticon-signup"></span></a></li>
-	                               <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
+	                               <li> <a href="/user/login.do"><span class="flaticon-user"></span></a></li>
 <%--                                 </c:when></c:choose> --%>
 <%--                                 <c:choose><c:when test=""> --%>
 <!-- 	                               <li> <a href="logout.html"><span class="flaticon-user"></span></a></li> -->

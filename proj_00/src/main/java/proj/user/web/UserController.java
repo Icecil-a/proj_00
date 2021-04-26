@@ -71,5 +71,13 @@ public class UserController {
 		return "redirect:/main.do";
 		
 	}
+	
+	/*
+	 * 로그인 페이지
+	 */
+	@RequestMapping(value = "/login.do")
+	public String goLogin(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	return "user/login";	
+	}
 
 }
