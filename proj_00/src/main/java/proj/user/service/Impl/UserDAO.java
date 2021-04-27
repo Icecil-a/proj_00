@@ -22,4 +22,11 @@ public class UserDAO extends EgovAbstractMapper{
 		return (int) insert("userDAO.insertUserInfo", vo);
 		
 	}
+	
+	/*
+	 * 로그인
+	 */
+	public UserVO login(UserVO vo) throws Exception{
+		return (UserVO) selectOne("userDAO.login", vo);	
+	}
 }

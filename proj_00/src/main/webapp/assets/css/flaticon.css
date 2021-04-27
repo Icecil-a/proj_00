@@ -57,12 +57,20 @@ font-style: normal;
         height:16px;
         display:inline-block;
       }
-.flaticon-shop:hover:before {
+.flaticon-login:before {
         content:"";
-        background-image: url("../img/adapt_icon/watch.svg");
+        background-image: url("../img/adapt_icon/login.svg");
         background-size: cover;
-        color: #ff2020;
         width:16px;
         height:16px;
         display:inline-block;
       }
+.flaticon-logout:before {
+        content:"";
+        background-image: url("../img/adapt_icon/logout.svg");
+        background-size: cover;
+        width:16px;
+        height:16px;
+        display:inline-block;
+      }
+
