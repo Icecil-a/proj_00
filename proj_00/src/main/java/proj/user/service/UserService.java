@@ -12,4 +12,9 @@ public interface UserService {
 	 * 회원 정보 등록
 	 */
 	int insertUserInfo(UserVO vo) throws Exception;
+	
+	/*
+	 * 로그인
+	 */
+	 UserVO login(UserVO vo) throws Exception;
 }

@@ -31,6 +31,13 @@
     <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="language" />
     </bean>
+    <bean id="authenticationInterceptor" class="proj.com.interceptor.AuthenticationInterceptor"/>
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/user/login.do"/>
+    		<bean class="proj.com.interceptor.AuthenticationInterceptor"/>
+    	</mvc:interceptor>
+    </mvc:interceptors>
 
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="cmmn/egovError"/>

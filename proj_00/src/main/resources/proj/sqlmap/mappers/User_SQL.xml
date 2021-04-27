@@ -12,6 +12,10 @@
 	
 
 	<insert id="insertUserInfo" parameterType="userVO">
-			INSERT INTO TBL_USER(ID, PWD, NAME) VALUES (#{id}, #{pwd}, #{name})
+		INSERT INTO TBL_USER(ID, PWD, NAME) VALUES (#{id}, #{pwd}, #{name})
 	</insert>
+	
+	<select id="login" resultType="userVO">
+		select * from TBL_USER where ID = #{id} and PWD = #{pwd}
+	</select>
 </mapper>

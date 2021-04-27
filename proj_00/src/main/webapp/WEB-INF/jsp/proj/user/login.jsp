@@ -45,22 +45,21 @@
 						<h3>
 							Welcome Back ! <br> Please Sign in now
 						</h3>
-						<form class="row contact_form" action="#" method="post"
+						<form class="row contact_form" method="post" id="loginForm"
 							novalidate="novalidate">
 							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="id" name="id"
-									value="" placeholder="아이디">
+								<input type="text" class="form-control" id="id" name="id" placeholder="아이디">
 							</div>
 							<div class="col-md-12 form-group p_star">
 								<input type="password" class="form-control" id="pwd"
-									name="pwd" value="" placeholder="비밀번호">
+									name="pwd" placeholder="비밀번호">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account d-flex align-items-center">
 									<input type="checkbox" id="f-option" name="selector"> <label
 										for="f-option">Remember me</label>
 								</div>
-								<button type="submit" value="submit" class="btn_3">로그인</button>
+								<button type="button" id="loginBtn" class="btn_3">로그인</button>
 <!-- 								<a class="lost_pass" href="#">forget password?</a> -->
 							</div>
 						</form>
@@ -85,37 +84,62 @@
 
 <!-- JS here -->
 
-<script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 <!-- Jquery, Popper, Bootstrap -->
-<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="./assets/js/popper.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
 <!-- Jquery Mobile Menu -->
-<script src="./assets/js/jquery.slicknav.min.js"></script>
+<script src="/assets/js/jquery.slicknav.min.js"></script>
 
 <!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="./assets/js/owl.carousel.min.js"></script>
-<script src="./assets/js/slick.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/slick.min.js"></script>
 
 <!-- One Page, Animated-HeadLin -->
-<script src="./assets/js/wow.min.js"></script>
-<script src="./assets/js/animated.headline.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/animated.headline.js"></script>
 
 <!-- Scroll up, nice-select, sticky -->
-<script src="./assets/js/jquery.scrollUp.min.js"></script>
-<script src="./assets/js/jquery.nice-select.min.js"></script>
-<script src="./assets/js/jquery.sticky.js"></script>
-<script src="./assets/js/jquery.magnific-popup.js"></script>
+<script src="/assets/js/jquery.scrollUp.min.js"></script>
+<script src="/assets/js/jquery.nice-select.min.js"></script>
+<script src="/assets/js/jquery.sticky.js"></script>
+<script src="/assets/js/jquery.magnific-popup.js"></script>
 
 <!-- contact js -->
-<script src="./assets/js/contact.js"></script>
-<script src="./assets/js/jquery.form.js"></script>
-<script src="./assets/js/jquery.validate.min.js"></script>
-<script src="./assets/js/mail-script.js"></script>
-<script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="/assets/js/contact.js"></script>
+<script src="/assets/js/jquery.form.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/mail-script.js"></script>
+<script src="/assets/js/jquery.ajaxchimp.min.js"></script>
 
 <!-- Jquery Plugins, main Jquery -->
-<script src="./assets/js/plugins.js"></script>
-<script src="./assets/js/main.js"></script>
+<script src="/assets/js/plugins.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
+
+<script type="text/javascript">
+$("#loginBtn").click(function(){
+	var inputID = $("#id").val();
+	var inputPWD = $("#pwd").val();
+	
+	if(inputID == ""){
+		alert("아이디를 입력해주세요.");
+		$("#id").focus();
+	}
+	
+	if(inputPWD == ""){
+		alert("비밀번호를 입력해주세요.");
+		$("#pwd").focus();
+	}
+	
+	if(inputID != "" && inputPWD != ""){
+// 		var data = $("#loginForm").serialize();
+		$("#loginForm").attr("action", "/user/loginProc.do");
+		$("#loginForm").submit();
+	}
+
+
+});
+</script>
 </html>

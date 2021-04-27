@@ -39,4 +39,10 @@ public class UserServiceImpl extends EgovAbstractServiceImpl implements UserServ
 		return userDAO.insertUserInfo(vo);
 	}
 
+	@Override
+	public UserVO login(UserVO vo) throws Exception {
+		
+		return userDAO.login(vo);
+	}
+
 }
