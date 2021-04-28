@@ -55,10 +55,10 @@
 									name="pwd" placeholder="비밀번호">
 							</div>
 							<div class="col-md-12 form-group">
-								<div class="creat_account d-flex align-items-center">
-									<input type="checkbox" id="f-option" name="selector"> <label
-										for="f-option">Remember me</label>
-								</div>
+<!-- 								<div class="creat_account d-flex align-items-center"> -->
+<!-- 									<input type="checkbox" id="f-option" name="selector"> <label -->
+<!-- 										for="f-option">Remember me</label> -->
+<!-- 								</div> -->
 								<button type="button" id="loginBtn" class="btn_3">로그인</button>
 <!-- 								<a class="lost_pass" href="#">forget password?</a> -->
 							</div>
@@ -119,6 +119,15 @@
 </body>
 
 <script type="text/javascript">
+$().ready(function(){
+	var msg = "${msg}";
+
+	if(msg != ""){
+		alert(msg);
+	}
+});
+
+
 $("#loginBtn").click(function(){
 	var inputID = $("#id").val();
 	var inputPWD = $("#pwd").val();
@@ -134,11 +143,10 @@ $("#loginBtn").click(function(){
 	}
 	
 	if(inputID != "" && inputPWD != ""){
-// 		var data = $("#loginForm").serialize();
 		$("#loginForm").attr("action", "/user/loginProc.do");
 		$("#loginForm").submit();
 	}
-
+	
 
 });
 </script>

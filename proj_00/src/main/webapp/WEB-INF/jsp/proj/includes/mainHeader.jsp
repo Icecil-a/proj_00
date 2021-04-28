@@ -85,9 +85,9 @@
                                 	</c:when>
                                 	<c:otherwise>
 		                               <li> <a href="/user/logout.do"><span class="flaticon-logout"></span></a></li>
-                                	</c:otherwise>
+                               		   <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a></li>
+                                  	</c:otherwise>
                                 </c:choose>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a></li>
                             </ul>
                         </div>
                     </div>

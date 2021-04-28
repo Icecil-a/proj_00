@@ -31,10 +31,11 @@
     <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="language" />
     </bean>
+    <!-- 인터셉터  -->
     <bean id="authenticationInterceptor" class="proj.com.interceptor.AuthenticationInterceptor"/>
     <mvc:interceptors>
     	<mvc:interceptor>
-    		<mvc:mapping path="/user/login.do"/>
+    		<mvc:mapping path="/admin/*.do"/>
     		<bean class="proj.com.interceptor.AuthenticationInterceptor"/>
     	</mvc:interceptor>
     </mvc:interceptors>
