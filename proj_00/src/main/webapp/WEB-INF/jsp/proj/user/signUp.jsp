@@ -42,19 +42,19 @@
 						</div>
 						<div class="col-md-7 form-group p_star idInput">
 							<input type="text" class="form-control" id="id" name="id"
-								placeholder="아이디">
+								placeholder="아이디" maxlength="12">
 						</div>
 						<span id="idText"></span> <button type="button" class="btn_5" id="idChkBtn">중복확인</button>
 						<p class="col-md-7 cdt">·6~12까지 영문(소문자)/숫자만 허용</p>
 
 						<div class="col-md-7 form-group p_star">
 							<input type="password" class="form-control" id="pwd"
-								name="pwd" placeholder="비밀번호">
+								name="pwd" placeholder="비밀번호" maxlength="12">
 						</div>
 						<span id="pwdText"></span>
 						<div class="col-md-7 form-group p_star">
 							<input type="password" class="form-control" id="pwdCk"
-								name="pwdCk" placeholder="비밀번호 확인">
+								name="pwdCk" placeholder="비밀번호 확인" maxlength="12">
 						</div>
 						<span id="pwdCkText"></span>
 

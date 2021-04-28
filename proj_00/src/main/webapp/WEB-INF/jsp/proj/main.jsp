@@ -85,4 +85,13 @@
 	<script type="text/javascript" src="js/custom.js"></script>
 
 </body>
+<script type="text/javascript">
+$().ready(function(){
+	var msg = "${msg}";
+
+	if(msg != ""){
+		alert(msg);
+	}
+});
+</script>
 </html>
