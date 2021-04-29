@@ -1,5 +1,6 @@
 package proj.user.service;
 
+import java.util.List;
 
 public interface UserService {
 
@@ -17,4 +18,10 @@ public interface UserService {
 	 * 로그인
 	 */
 	 UserVO login(UserVO vo) throws Exception;
+	 
+	 /*
+	  * 회원 목록
+	  */
+	 List<UserVO> userList() throws Exception;
+
 }

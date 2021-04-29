@@ -18,4 +18,13 @@
 	<select id="login" resultType="userVO">
 		select * from TBL_USER where ID = #{id} and PWD = #{pwd}
 	</select>
+	
+	<select id="userList" resultType="userVO">
+		select * from TBL_USER where ID not in ('admin') order by ID asc
+	</select>
+	
+	<select id="userCount" resultType="int">
+		select count(*) from TBL_USER;
+	</select>
+	
 </mapper>
