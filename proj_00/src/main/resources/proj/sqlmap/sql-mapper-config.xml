@@ -20,6 +20,7 @@
 		<typeAlias alias="sampleVO" type="egovframework.example.sample.service.SampleVO"/>
 		
 		<typeAlias alias="userVO" type="proj.user.service.UserVO"/>
+		<typeAlias alias="pagingVO" type="proj.com.util.PagingVO"/>
 		
     </typeAliases>
 </configuration>

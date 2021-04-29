@@ -1,5 +1,7 @@
 package proj.user.service.Impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -43,6 +45,11 @@ public class UserServiceImpl extends EgovAbstractServiceImpl implements UserServ
 	public UserVO login(UserVO vo) throws Exception {
 		
 		return userDAO.login(vo);
+	}
+
+	@Override
+	public List<UserVO> userList() throws Exception {
+		return userDAO.userList();
 	}
 
 }
