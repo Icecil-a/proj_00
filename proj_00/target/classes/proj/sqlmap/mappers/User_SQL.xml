@@ -6,25 +6,33 @@
 	<!-- <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/> -->
 	<!-- <typeAlias alias="searchVO" type="egovframework.example.sample.service.SampleDefaultVO"/> -->
 
+	<!-- 아이디 중복 여부 확인 -->
 	<select id="userIdChk" parameterType="String" resultType="boolean">
 		select decode(count(*), 1, 'false', 0, 'true') from TBL_USER where ID = #{id}
 	</select>
 	
-
+	<!-- 회원 정보 등록 -->
 	<insert id="insertUserInfo" parameterType="userVO">
 		INSERT INTO TBL_USER(ID, PWD, NAME) VALUES (#{id}, #{pwd}, #{name})
 	</insert>
 	
+	<!-- 로그인 -->
 	<select id="login" resultType="userVO">
 		select * from TBL_USER where ID = #{id} and PWD = #{pwd}
 	</select>
 	
+	<!-- 회원 목록 -->
 	<select id="userList" resultType="userVO">
-		select * from TBL_USER where ID not in ('admin') order by ID asc
+		select * from tbl_user
+		where ID not in ('admin') order by ID
+		OFFSET 0 ROWS 
+		FETCH NEXT 10 ROWS ONLY
 	</select>
 	
+	<!-- 회원수 집계 -->
 	<select id="userCount" resultType="int">
-		select count(*) from TBL_USER;
+		select count(*) from TBL_USER where ID not in ('admin')
 	</select>
+
 	
 </mapper>

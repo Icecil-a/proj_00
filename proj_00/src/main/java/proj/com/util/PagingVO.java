@@ -35,6 +35,7 @@ public class PagingVO {
 	// 페이징 시작페이지, 끝페이지 계산
 	public void calcStartEndPage(int nowPage, int pageRange) {
 		setEndPage((int) (Math.ceil((double) nowPage / (double) pageRange)));
+		
 		if (getLastPage() < getEndPage()) {
 			setEndPage(getLastPage());
 		}
@@ -44,6 +45,7 @@ public class PagingVO {
 			setStartPage(1);
 		}
 	}
+	
 
 	// rowStart, rowEnd 계산
 	public void calcRowStartEnd(int nowPage, int cntPerPage) {

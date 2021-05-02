@@ -2,6 +2,8 @@ package proj.user.service;
 
 import java.util.List;
 
+import proj.com.util.PagingVO;
+
 public interface UserService {
 
 	/*
@@ -23,5 +25,15 @@ public interface UserService {
 	  * 회원 목록
 	  */
 	 List<UserVO> userList() throws Exception;
+	 
+	/*
+	 * 회원수 집계
+	 */
+	int userCount() throws Exception;
+	
+	 /*
+	  * 회원 목록 페이징
+	  */
+//	 List<UserVO> userList(PagingVO vo) throws Exception;
 
 }
