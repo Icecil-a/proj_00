@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import proj.com.util.PagingVO;
 import proj.user.service.UserService;
 
 
@@ -27,11 +26,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = {"/userList.do"})
-	public String userList(Model model, PagingVO vo) throws Exception{
+	public String userList(Model model) throws Exception{
+		
+//		model.addAttribute("userCount", userService.userCount());
 		
 		model.addAttribute("userList", userService.userList());
 		
 		return "/admin/adminUser";
 	}
+
 
 }

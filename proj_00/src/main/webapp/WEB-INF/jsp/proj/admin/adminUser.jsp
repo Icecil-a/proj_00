@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -15,7 +15,7 @@
 <!-- <link -->
 <!-- 	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" -->
 <!-- 	rel="stylesheet" crossorigin="anonymous" /> -->
-<link href="css/dataTables.min.css" rel="stylesheet"/>
+<link href="css/dataTables.min.css" rel="stylesheet" />
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
 	crossorigin="anonymous"></script>
@@ -28,34 +28,18 @@
 		id="sidebarToggle" href="#!">
 		<i class="fas fa-bars"></i>
 	</button>
-	<!-- Navbar Search-->
-<!-- 	<form -->
-<!-- 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> -->
-<!-- 		<div class="input-group"> -->
-<!-- 			<input class="form-control" type="text" placeholder="Search for..." -->
-<!-- 				aria-label="Search" aria-describedby="basic-addon2" /> -->
-<!-- 			<div class="input-group-append"> -->
-<!-- 				<button class="btn btn-primary" type="button"> -->
-<!-- 					<i class="fas fa-search"></i> -->
-<!-- 				</button> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</form> -->
-	<!-- Navbar-->
-<!-- 	<ul class="navbar-nav ml-auto ml-md-0"> -->
-<!-- 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" -->
-<!-- 			id="userDropdown" href="#!" role="button" data-toggle="dropdown" -->
-<!-- 			aria-haspopup="true" aria-expanded="false"><i -->
-<!-- 				class="fas fa-user fa-fw"></i></a></li> -->
-<!-- 		<div class="dropdown-menu dropdown-menu-right" -->
-<!-- 			aria-labelledby="userDropdown"> -->
-<!-- 			<a class="dropdown-item" href="#!">Settings</a> <a -->
-<!-- 				class="dropdown-item" href="#!">Activity Log</a> -->
-<!-- 			<div class="dropdown-divider"></div> -->
-<!-- 			<a class="dropdown-item" href="login.html">Logout</a> -->
-<!-- 		</div> -->
-<!-- 	</ul> -->
-	</nav>
+	<!-- Navbar Search--> <!-- 	<form --> <!-- 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> -->
+	<!-- 		<div class="input-group"> --> <!-- 			<input class="form-control" type="text" placeholder="Search for..." -->
+	<!-- 				aria-label="Search" aria-describedby="basic-addon2" /> --> <!-- 			<div class="input-group-append"> -->
+	<!-- 				<button class="btn btn-primary" type="button"> --> <!-- 					<i class="fas fa-search"></i> -->
+	<!-- 				</button> --> <!-- 			</div> --> <!-- 		</div> --> <!-- 	</form> -->
+	<!-- Navbar--> <!-- 	<ul class="navbar-nav ml-auto ml-md-0"> --> <!-- 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" -->
+	<!-- 			id="userDropdown" href="#!" role="button" data-toggle="dropdown" -->
+	<!-- 			aria-haspopup="true" aria-expanded="false"><i --> <!-- 				class="fas fa-user fa-fw"></i></a></li> -->
+	<!-- 		<div class="dropdown-menu dropdown-menu-right" --> <!-- 			aria-labelledby="userDropdown"> -->
+	<!-- 			<a class="dropdown-item" href="#!">Settings</a> <a --> <!-- 				class="dropdown-item" href="#!">Activity Log</a> -->
+	<!-- 			<div class="dropdown-divider"></div> --> <!-- 			<a class="dropdown-item" href="login.html">Logout</a> -->
+	<!-- 		</div> --> <!-- 	</ul> --> </nav>
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -63,7 +47,7 @@
 			<div class="sb-sidenav-menu">
 				<div class="nav">
 					<div class="sb-sidenav-menu-heading">관리자 전용</div>
-					<a class="nav-link" href="/admin/adminUser.do">
+					<a class="nav-link" href="/admin/userList.do">
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-users"></i>
 						</div> 회원관리
@@ -99,49 +83,65 @@
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<table class="table table-bordered table-hover" id="dataTable" width="100%"
-								cellspacing="0">
+							<table class="table table-bordered table-hover" id="dataTable"
+								width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>아이디</th>
 										<th>이름</th>
 										<th>비밀번호</th>
-<!-- 										<th>탈퇴</th> -->
+										<!-- 										<th>탈퇴</th> -->
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach items="${userList}" var="userList">
-									<tr>
-										<td><c:out value="${userList.id}"/></td>
-										<td><c:out value="${userList.name}"/></td>
-										<td><c:out value="${userList.pwd}"/></td>
-<!-- 										<td><button class="btn btn-danger"><i class="fas fa-user-minus"></i></button></td> -->
-									</tr>
+										<tr>
+											<td><c:out value="${userList.id}" /></td>
+											<td><c:out value="${userList.name}" /></td>
+											<td><c:out value="${userList.pwd}" /></td>
+											<!-- 										<td><button class="btn btn-danger"><i class="fas fa-user-minus"></i></button></td> -->
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
 					</div>
-					
+
 					<div class="row">
-						<div class="col-sm-12 col-md-5">
-							<div class="dataTables_info" id="dataTable_info" role="status"
-								aria-live="polite">Showing 1 to 6 of 6 entries</div>
-						</div>
+						<!-- 						<div class="col-sm-12 col-md-5"> -->
+						<!-- 							<div class="dataTables_info" id="dataTable_info" role="status" -->
+						<!-- 								aria-live="polite">Showing 1 to 6 of 6 entries</div> -->
+						<!-- 						</div> -->
 						<div class="col-sm-12 col-md-7">
 							<div class="dataTables_paginate paging_simple_numbers"
 								id="dataTable_paginate">
 								<ul class="pagination">
+									<%-- 									<c:if test=""> --%>
 									<li class="paginate_button page-item previous disabled"
-										id="dataTable_previous"><a href="#"
+										id="dataTable_previous"><a href=""
 										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-										class="page-link">Previous</a></li>
-									<li class="paginate_button page-item active"><a href="#"
-										aria-controls="dataTable" data-dt-idx="1" tabindex="0"
-										class="page-link">1</a></li>
+										class="page-link">Prev</a></li>
+									<%-- 									</c:if> --%>
+									<%-- 									<c:forEach begin="" --%>
+									<%-- 										end="" var="> --%>
+									<%-- 										<c:choose> --%>
+									<%-- 											<c:when test=""> --%>
+									<!-- 												<li class="paginate_button page-item active"><a -->
+									<!-- 													href="#" aria-controls="dataTable" data-dt-idx="1" -->
+									<!-- 													tabindex="0" class="page-link">1</a></li> -->
+									<%-- 											</c:when> --%>
+									<%-- 											<c:when test=""> --%>
+									<!-- 												<li class="paginate_button page-item active"><a -->
+									<!-- 													href="#" aria-controls="dataTable" data-dt-idx="1" -->
+									<%-- 													tabindex="0" class="page-link">${p }</a></li> --%>
+									<%-- 											</c:when> --%>
+									<%-- 										</c:choose> --%>
+									<%-- 									</c:forEach> --%>
+									<%-- 									<c:if test=""> --%>
 									<li class="paginate_button page-item next disabled"
-										id="dataTable_next"><a href="#" aria-controls="dataTable"
+										id="dataTable_next"><a href="/admin/userList.do" aria-controls="dataTable"
 										data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+									<%-- 									</c:if> --%>
 								</ul>
 							</div>
 						</div>
@@ -150,30 +150,49 @@
 			</div>
 		</div>
 		</main>
-<!-- 		<footer class="py-4 bg-light mt-auto"> -->
-<!-- 		<div class="container-fluid"> -->
-<!-- 			<div class="d-flex align-items-center justify-content-between small"> -->
-<!-- 				<div class="text-muted">Copyright &copy; Your Website 2021</div> -->
-<!-- 				<div> -->
-<!-- 					<a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp; -->
-<!-- 						Conditions</a> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		</footer> -->
+		<!-- 		<footer class="py-4 bg-light mt-auto"> -->
+		<!-- 		<div class="container-fluid"> -->
+		<!-- 			<div class="d-flex align-items-center justify-content-between small"> -->
+		<!-- 				<div class="text-muted">Copyright &copy; Your Website 2021</div> -->
+		<!-- 				<div> -->
+		<!-- 					<a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp; -->
+		<!-- 						Conditions</a> -->
+		<!-- 				</div> -->l
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+		<!-- 		</footer> -->
 	</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		crossorigin="anonymous"></script>
-<!-- 	<script -->
-<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" -->
-<!-- 		crossorigin="anonymous"></script> -->
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" -->
+	<!-- 		crossorigin="anonymous"></script> -->
 	<script src="js/scripts.js"></script>
 	<!--         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script> -->
-<!-- 	<script src="js/jquery.datatables.min.js"></script> -->
-<!-- 	<script -->
-<!-- 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" -->
-<!-- 		crossorigin="anonymous"></script> -->
+	<!-- 	<script src="js/jquery.datatables.min.js"></script> -->
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" -->
+	<!-- 		crossorigin="anonymous"></script> -->
 	<script src="assets/demo/datatables-demo.js"></script>
 </body>
+<script type="text/javascript">
+	var offset = 0;
+
+	$("#dataTable_next").click(function() {
+		offset += 10;
+
+		$.ajax({
+			type : "get",
+			url : "/admin/userList.do",
+			data : {offset : offset},
+			success : function(){
+					alert("다음 목록입니다.");
+			},
+			error : function(xhr, status, error){
+				console.log(" code : " + xhr.status + " // message : " + xhr.responseText + " // error : " + error);
+			}
+		});
+	});
+</script>
 </html>
