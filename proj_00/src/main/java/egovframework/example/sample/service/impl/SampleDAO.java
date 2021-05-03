@@ -16,7 +16,6 @@
 package egovframework.example.sample.service.impl;
 
 import java.util.List;
-
 import egovframework.example.sample.service.SampleDefaultVO;
 import egovframework.example.sample.service.SampleVO;
 

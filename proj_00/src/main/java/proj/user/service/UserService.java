@@ -24,7 +24,7 @@ public interface UserService {
 	 /*
 	  * 회원 목록
 	  */
-	 List<UserVO> userList() throws Exception;
+	 List<UserVO> userList(int offset) throws Exception;
 	 
 	/*
 	 * 회원수 집계

@@ -25,7 +25,7 @@
 	<select id="userList" resultType="userVO">
 		select * from tbl_user
 		where ID not in ('admin') order by ID
-		OFFSET 0 ROWS 
+		OFFSET #{offset} ROWS 
 		FETCH NEXT 10 ROWS ONLY
 	</select>
 	
