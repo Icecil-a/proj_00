@@ -1,6 +1,7 @@
 package proj.admin.web;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,11 +27,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = {"/userList.do"})
-	public String userList(Model model) throws Exception{
+	public String userList(Model model, HttpServletRequest req) throws Exception{
 		
 //		model.addAttribute("userCount", userService.userCount());
+		int offset = Integer.parseInt(req.getParameter("offset"));
 		
-		model.addAttribute("userList", userService.userList());
+		model.addAttribute("userList", userService.userList(offset));
+		
 		
 		return "/admin/adminUser";
 	}

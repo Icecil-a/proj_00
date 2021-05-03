@@ -138,9 +138,10 @@
 									<%-- 										</c:choose> --%>
 									<%-- 									</c:forEach> --%>
 									<%-- 									<c:if test=""> --%>
-									<li class="paginate_button page-item next disabled"
-										id="dataTable_next"><a href="/admin/userList.do" aria-controls="dataTable"
-										data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+									<li class="paginate_button page-item next"
+										id="dataTable_next"><a href="/admin/userList.do"
+										aria-controls="dataTable" data-dt-idx="2" tabindex="0"
+										class="page-link">Next</a></li>
 									<%-- 									</c:if> --%>
 								</ul>
 							</div>
@@ -157,7 +158,8 @@
 		<!-- 				<div> -->
 		<!-- 					<a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp; -->
 		<!-- 						Conditions</a> -->
-		<!-- 				</div> -->l
+		<!-- 				</div> -->
+		l
 		<!-- 			</div> -->
 		<!-- 		</div> -->
 		<!-- 		</footer> -->
@@ -179,20 +181,26 @@
 <script type="text/javascript">
 	var offset = 0;
 
-	$("#dataTable_next").click(function() {
-		offset += 10;
+	$("#dataTable_next").click(
+			function() {
+				offset += 10;
+				
+				console.log(offset);
 
-		$.ajax({
-			type : "get",
-			url : "/admin/userList.do",
-			data : {offset : offset},
-			success : function(){
-					alert("다음 목록입니다.");
-			},
-			error : function(xhr, status, error){
-				console.log(" code : " + xhr.status + " // message : " + xhr.responseText + " // error : " + error);
-			}
-		});
-	});
+				$.ajax({
+					type : "post",
+					url : "/admin/userList.do?offset=" + offset,
+					data : {
+						offset : offset
+					},
+					success : function() {
+						alert("다음 목록입니다.");
+					},
+					error : function(xhr, status, error) {
+						console.log(" code : " + xhr.status + " // message : "
+								+ xhr.responseText + " // error : " + error);
+					}
+				});
+			});
 </script>
 </html>

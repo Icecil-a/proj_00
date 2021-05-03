@@ -61,8 +61,8 @@ public class UserServiceImpl extends EgovAbstractServiceImpl implements UserServ
 	  * 회원 목록
 	  */
 	@Override
-	public List<UserVO> userList() throws Exception {
-		return userDAO.userList();
+	public List<UserVO> userList(int offset) throws Exception {
+		return userDAO.userList(offset);
 	}
 
 	/*

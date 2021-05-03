@@ -9,15 +9,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import proj.user.service.UserVO;
+
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		Object login = session.getAttribute("login");
+		UserVO login = (UserVO) session.getAttribute("login");
 		
-		if(!session.getId().equals("admin")) {
+		if(!login.getId().equals("admin")) {
 			session.invalidate();
 			response.sendError(403, "접근 권한이 없습니다.");
 			return false;
