@@ -37,40 +37,48 @@ font-style: normal;
         content:"";
         background-image: url("../img/adapt_icon/signup.svg");
         background-size: cover;
-        width:16px;
-        height:16px;
+        width:20px;
+        height:20px;
         display:inline-block;
       }
 .flaticon-home:before {
         content:"";
         background-image: url("../img/adapt_icon/home.svg");
         background-size: cover;
-        width:16px;
-        height:16px;
+        width:20px;
+        height:20px;
         display:inline-block;
       }
 .flaticon-shop:before {
         content:"";
         background-image: url("../img/adapt_icon/watch.svg");
         background-size: cover;
-        width:16px;
-        height:16px;
+        width:20px;
+        height:20px;
         display:inline-block;
       }
 .flaticon-login:before {
         content:"";
         background-image: url("../img/adapt_icon/login.svg");
         background-size: cover;
-        width:16px;
-        height:16px;
+        width:20px;
+        height:20px;
         display:inline-block;
       }
 .flaticon-logout:before {
         content:"";
         background-image: url("../img/adapt_icon/logout.svg");
         background-size: cover;
-        width:16px;
-        height:16px;
+        width:20px;
+        height:20px;
+        display:inline-block;
+      }
+.flaticon-cart:before {
+        content:"";
+        background-image: url("../img/adapt_icon/cart.svg");
+        background-size: cover;
+        width:20px;
+        height:20px;
         display:inline-block;
       }
 

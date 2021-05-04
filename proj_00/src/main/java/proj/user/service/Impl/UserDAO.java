@@ -47,9 +47,9 @@ public class UserDAO extends EgovAbstractMapper{
 	}
 	
 	/*
-	 * 회원 목록 페이징
+	 * 회원 강제 탈퇴
 	 */
-//	public List<UserVO> userList(PagingVO vo) throws Exception{
-//		return (List) selectList("userDAO.userList", vo);
-//	}
+	public void userForcedWithdrawal(String id) throws Exception{
+		delete("userDAO.userForcedWithdrawal", id);
+	}
 }
