@@ -72,14 +72,15 @@ public class UserServiceImpl extends EgovAbstractServiceImpl implements UserServ
 	public int userCount() throws Exception {
 		return userDAO.userCount();
 	}
-	
-	 /*
-	  * 회원 목록 페이징
-	  */
-//	@Override
-//	public List<UserVO> userList(PagingVO vo) throws Exception {
-//		return userDAO.userList(vo);
-//	}
+
+	/*
+	 * 회원 강제 탈퇴
+	 */
+	@Override
+	public void userForcedWithdrawal(String id) throws Exception {
+		userDAO.userForcedWithdrawal(id);
+	}
+
 
 
 

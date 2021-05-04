@@ -36,48 +36,16 @@
                         <div class="logo">
                             <a href="/main.do"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
-<!--                          Main-menu  -->
-<!--                         <div class="main-menu d-none d-lg-block"> -->
-<!--                             <nav>                                                 -->
-<!--                                 <ul id="navigation">   -->
-<!--                                     <li><a href="/main.do">Home</a></li> -->
-<!--                                     <li><a href="shop.html">shop</a></li> -->
-<!--                                     <li><a href="about.html">about</a></li> -->
-<!--                                     <li class="hot"><a href="#">Latest</a> -->
-<!--                                         <ul class="submenu"> -->
-<!--                                             <li><a href="shop.html"> Product list</a></li> -->
-<!--                                             <li><a href="product_details.html"> Product Details</a></li> -->
-<!--                                         </ul> -->
-<!--                                     </li> -->
-<!--                                     <li><a href="blog.html">Blog</a> -->
-<!--                                         <ul class="submenu"> -->
-<!--                                             <li><a href="blog.html">Blog</a></li> -->
-<!--                                             <li><a href="blog-details.html">Blog Details</a></li> -->
-<!--                                         </ul> -->
-<!--                                     </li> -->
-<!--                                     <li><a href="#">Pages</a> -->
-<!--                                         <ul class="submenu"> -->
-<!--                                             <li><a href="login.html">Login</a></li> -->
-<!--                                             <li><a href="cart.html">Cart</a></li> -->
-<!--                                             <li><a href="elements.html">Element</a></li> -->
-<!--                                             <li><a href="confirmation.html">Confirmation</a></li> -->
-<!--                                             <li><a href="checkout.html">Product Checkout</a></li> -->
-<!--                                         </ul> -->
-<!--                                     </li> -->
-<!--                                     <li><a href="contact.html">Contact</a></li> -->
-<!--                                 </ul> -->
-<!--                             </nav> -->
-<!--                         </div> -->
-                        <!-- Header Right -->
+
                         <div class="header-right">
                             <ul>
                                 <li> <a href="/main.do"><span class="flaticon-home"></span></a></li>
                                 <li> <a href="/product/shop.do"><span class="flaticon-shop"></span></a></li>
-                                <li>
-                                    <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
-                                    </div>
-                                </li>
+<!--                                 <li> -->
+<!--                                     <div class="nav-search search-switch"> -->
+<!--                                         <span class="flaticon-search"></span> -->
+<!--                                     </div> -->
+<!--                                 </li> -->
                                 <c:choose>
                                 	<c:when test="${login == null}">
                                 		<li> <a href="/user/signUp.do"><span class="flaticon-signup"></span></a></li>
@@ -85,7 +53,7 @@
                                 	</c:when>
                                 	<c:otherwise>
 		                               <li> <a href="/user/logout.do"><span class="flaticon-logout"></span></a></li>
-                               		   <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a></li>
+                               		   <li><a href="cart.html"><span class="flaticon-cart"></span></a></li>
                                   	</c:otherwise>
                                 </c:choose>
                             </ul>

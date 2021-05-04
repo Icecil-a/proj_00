@@ -33,6 +33,10 @@
 	<select id="userCount" resultType="int">
 		select count(*) from TBL_USER where ID not in ('admin')
 	</select>
-
+	
+	<!-- 회원 강제 탈퇴 -->
+	<delete id="userForcedWithdrawal">
+		delete from TBL_USER where ID = #{id}
+	</delete>
 	
 </mapper>

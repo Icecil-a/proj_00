@@ -16,29 +16,11 @@
 <!-- Normalize/Reset CSS-->
 <link rel="stylesheet" href="css/normalize.min.css">
 <link rel="stylesheet" href="css/main.css"></head>
-<%@ include file="./includes/mainHeader.jsp" %>
+<%-- <%@ include file="./includes/mainHeader.jsp" %> --%>
+<%@ include file="./includes/header.jsp" %>
 	
 <body id="welcome">
-<!-- <aside class="left-sidebar"> -->
-<!-- <div class="logo"> -->
-<!-- 	<a href="#welcome"> -->
-<!-- 		<h1>Watch shop</h1> -->
-<!-- 	</a> -->
-<!-- </div> -->
-<!-- <nav class="left-nav"> -->
-<!-- 	<ul id="nav"> -->
-<!-- 		<li class="current"><a href="#welcome">Welcome</a></li> -->
-<!-- 		<li><a href="#installation">Installation</a></li> -->
-<!-- 		<li><a href="#tmpl-structure">Structure</a></li> -->
-<!-- 		<li><a href="#css-structure">CSS Files</a></li> -->
-<!-- 		<li><a href="#javascript">JavaScript Libraries</a></li> -->
-<!-- 		<li><a href="#contact-form">Contact Form</a></li> -->
-<!-- 		<li><a href="#subscription-form">Subscription Form</a></li> -->
-<!-- 		<li><a href="#video">Video Tutorial</a></li> -->
-<!-- 		<li><a href="#credit">Source and Credit</a></li> -->
-<!-- 	</ul> -->
-<!-- </nav> -->
-<!-- </aside> -->
+
 
 <!-- Main Wrapper -->
 <div id="main-wrapper">
@@ -53,18 +35,7 @@
 			<p>This document covers the installation and use of this theme and often reveals answers to common problems and issues - read this document thoroughly if you are experiencing any difficulties. If you have any questions that are beyond the scope of this document. Thank you so much!</p>
 			<button class="black-btn" onclick="">Go shopping</button>
 		</div>
-<!-- 		<div class="features"> -->
-<!-- 			<h2 class="twenty">Template Features</h2> -->
-<!-- 			<ul> -->
-<!-- 				<li>Clean &amp; Simple Design</li> -->
-<!-- 				<li>HTML5 &amp; CSS3</li> -->
-<!-- 				<li>Fully Responsive Design</li> -->
-<!-- 				<li>PHP/Ajax Powered Working Contact Form</li> -->
-<!-- 				<li>All files are well commented</li> -->
-<!-- 				<li>Cross Browser Compatible with IE11+, Firefox, Safari, Opera, Chrome</li> -->
-<!-- 				<li>Extensive Documentation</li> -->
-<!-- 			</ul> -->
-<!-- 		</div> -->
+
 	</section>
 
 </div>

@@ -31,9 +31,9 @@ public interface UserService {
 	 */
 	int userCount() throws Exception;
 	
-	 /*
-	  * 회원 목록 페이징
-	  */
-//	 List<UserVO> userList(PagingVO vo) throws Exception;
+	/*
+	 * 회원 강제 탈퇴
+	 */
+	void userForcedWithdrawal(String id) throws Exception;
 
 }
