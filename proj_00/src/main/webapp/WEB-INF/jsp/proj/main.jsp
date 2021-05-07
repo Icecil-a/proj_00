@@ -31,8 +31,15 @@
 		</div>
 		<div class="welcome">
 			<h2 class="twenty">Welcome To Watch shop</h2>
-			<p>Firstly, a huge thanks for purchasing this theme, your support is truly appreciated!</p>
-			<p>This document covers the installation and use of this theme and often reveals answers to common problems and issues - read this document thoroughly if you are experiencing any difficulties. If you have any questions that are beyond the scope of this document. Thank you so much!</p>
+			<p>상단 우측의 아이콘으로 원하는 서비스를 선택하세요.</p>
+			<ul>
+				<li><span class="flaticon-home"></span> : 메인 화면</li>
+				<li><span class="flaticon-shop"></span> : 상품 보기</li>
+				<li><span class="flaticon-signup"></span> : 회원 가입</li>
+				<li><span class="flaticon-login"></span> : 로그인</li>
+				<li><span class="flaticon-logout"></span> : 로그아웃</li>
+				<li><span class="flaticon-cart"></span> : 장바구니</li>
+			</ul>
 			<button class="black-btn" onclick="">Go shopping</button>
 		</div>
 

@@ -37,42 +37,46 @@
 					<form class="row contact_form" action="/user/insertUserInfo.do"
 						id="signUp" method="post" novalidate="novalidate">
 						<div class="col-md-7 form-group p_star">
-							<input type="text" class="form-control" id="name" name="name"
-								placeholder="이름">
+							<input onkeydown="blank(e)" type="text" class="form-control" id="name" name="name"
+								placeholder="이름" maxlength="5">
 						</div>
+						<span id="nameText"></span>
+
+						<p class="cdt">
+							·한글만 가능하며, 2자 이상 5자 이하로 설정하셔야 합니다.<br>
+						</p>
 						<div class="col-md-7 form-group p_star idInput">
-							<input type="text" class="form-control" id="id" name="id"
+							<input onkeydown="blank(e)" type="text" class="form-control" id="id" name="id" 
 								placeholder="아이디" maxlength="12">
 						</div>
-						<span id="idText"></span> <button type="button" class="btn_5" id="idChkBtn">중복확인</button>
-						<p class="col-md-7 cdt">·6~12까지 영문(소문자)/숫자만 허용</p>
+						<span id="idText"></span>
+						<button type="button" class="btn_5" id="idChkBtn">중복확인</button>
+						<p class="col-md-7 cdt">·6자 이상 12자 이하의 영문(소문자)과 숫자만 허용합니다.</p>
 
 						<div class="col-md-7 form-group p_star">
-							<input type="password" class="form-control" id="pwd"
-								name="pwd" placeholder="비밀번호" maxlength="12">
+							<input onkeydown="blank(e)" type="password" class="form-control" id="pwd" name="pwd"
+								placeholder="비밀번호" maxlength="12">
 						</div>
 						<span id="pwdText"></span>
 						<div class="col-md-7 form-group p_star">
-							<input type="password" class="form-control" id="pwdCk"
+							<input onkeydown="blank(e)" type="password" class="form-control" id="pwdCk"
 								name="pwdCk" placeholder="비밀번호 확인" maxlength="12">
 						</div>
 						<span id="pwdCkText"></span>
 
 						<p class="cdt">
 							·영문, 특수문자, 숫자를 반드시 1자 이상 포함하여, 9자 이상 12자 이하로 설정하셔야 합니다.<br>
-							·비밀번호는 대문자, 소문자를 구별합니다.<br> ·특수문자 &lt;,>,”,’,_,+,\를 비밀번호로
+							·비밀번호는 대문자, 소문자를 구별합니다.<br> ·특수문자 &lt;  >  ”  ’  _  +  \ 	를 비밀번호로
 							사용하실 수 없습니다.
 						</p>
 
 						<div class="col-md-6 form-group">
-							<button type="button" id="okBtn" class="btn_3">
-								가입</button>
+							<button type="button" id="okBtn" class="btn_3">가입</button>
 
 						</div>
 						<div class="col-md-6 form-group">
 
-							<button type="reset" class="btn_3">
-								취소</button>
+							<button type="reset" class="btn_3">취소</button>
 						</div>
 					</form>
 				</div>
@@ -95,7 +99,7 @@
 	<div class="h-100 d-flex align-items-center justify-content-center">
 		<div class="search-close-btn">+</div>
 		<form class="search-model-form">
-			<input type="text" id="search-input" placeholder="Searching key.....">
+			<input onkeydown="blank(e)" type="text" id="search-input" placeholder="Searching key.....">
 		</form>
 	</div>
 </div>
@@ -138,144 +142,179 @@
 
 </body>
 <script type="text/javascript">
-var idChk;
-var idChk2;
-var pwdChk;
-var pwdChk2;
+	var nameChk;
+	var idChk;
+	var idChk2;
+	var pwdChk;
+	var pwdChk2;
 
+	// 이름 유효성
+	$("#name").keyup(function() {
+		var name = $("#name").val();
+		var nameReg = /^[가-힣]{2,5}$/;
 
-// 아이디 유효성
-$("#id").keyup(function(){
-	var id = $("#id").val().trim();
-	var idJ = /^[a-z0-9]{6,12}$/;
-	
-	if(!idJ.test(id)){
-		$("#idText").attr("class", "org_text").text("부적합");
-		idChk = false;
-	}else{
-		if(id = ""){
+		if (!nameReg.test(name)) {
+			$("#nameText").attr("class", "org_text").text("부적합");
+			nameChk = false;
+		} else {
+			if (name = "") {
+				$("#nameText").attr("class", "org_text").text("부적합");
+				nameChk = false;
+			}
+			$("#nameText").attr("class", "blue_text").text("적합");
+			nameChk = true;
+		}
+	});
+
+	// 아이디 유효성
+	$("#id").keyup(function() {
+		var id = $("#id").val();
+		var idReg = /^[a-z0-9]{6,12}$/;
+		
+		// 아이디 중복 확인 후, 아이디 변경 대비
+		idChk2 = null;
+
+		if (!idReg.test(id)) {
 			$("#idText").attr("class", "org_text").text("부적합");
 			idChk = false;
-		}
-		$("#idText").attr("class", "blue_text").text("적합");
-		idChk = true;
-	}
-});
-
-// 아이디 중복확인
-$("#idChkBtn").click(function(){
-	var id = $("#id").val().trim();
-
-	if(idChk){
-		
-		$.ajax({
-			type : "post",
-			url : "/user/userIdChk.do",
-			data : {id : id},
-			success : function(result){
-				if(result == "false"){
-					alert("이미 사용중인 아이디입니다.");
-					idChk2 = false;
-				}else{
-					alert("사용 가능한 아이디입니다.");
-					idChk2 = true;
-				}
-			},
-			error : function(xhr, status, error){
-				console.log(" code : " + xhr.status + " // message : " + xhr.responseText + " // error : " + error);
+		} else {
+			if (id = "") {
+				$("#idText").attr("class", "org_text").text("부적합");
+				idChk = false;
 			}
-		});
-	}else{
-		alert("사용 가능한 아이디를 입력해주세요.");
-	}
-});
-
-
-
-// 비밀번호 유효성
-$("#pwd").keyup(function(){
-	var pwd = $("#pwd").val();
-	var pwdCk = $("#pwdCk").val();
-
-	var pwdJ = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*=-])(?=.*[0-9]).{9,12}$/;
-	
-	if(!pwdJ.test(pwd)){
-		if(pwd == ""){
-			alert("비밀번호를 입력해주세요");
+			$("#idText").attr("class", "blue_text").text("적합");
+			idChk = true;
 		}
-		$("#pwdText").attr("class", "org_text").text("부적합");
-		pwChk = false;
-	}else{
-		$("#pwdText").attr("class", "blue_text").text("적합");
-		pwChk = true;
-	}
+	});
+
+	// 아이디 중복확인
+	$("#idChkBtn").click(
+			function() {
+				var id = $("#id").val();
+
+				if (idChk) {
+
+					$.ajax({
+						type : "post",
+						url : "/user/userIdChk.do",
+						data : {
+							id : id
+						},
+						success : function(result) {
+							if (result == "false") {
+								alert("이미 사용중인 아이디입니다.");
+								idChk2 = false;
+							} else {
+								alert("사용 가능한 아이디입니다.");
+								idChk2 = true;
+								console.log(id);
+							}
+						},
+						error : function(xhr, status, error) {
+							console.log(" code : " + xhr.status
+									+ " // message : " + xhr.responseText
+									+ " // error : " + error);
+						}
+					});
+				} else {
+					alert("사용 가능한 아이디를 입력해주세요.");
+				}
+			});
+
+	// 비밀번호 유효성
+	$("#pwd").keyup(function() {
+		var pwd = $("#pwd").val();
+		var pwdCk = $("#pwdCk").val();
+
+		var pwdReg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*=-])(?=.*[0-9]).{9,12}$/;
+
+		if (!pwdReg.test(pwd)) {
+			if (pwd == "") {
+				alert("비밀번호를 입력해주세요");
+			}
+			$("#pwdText").attr("class", "org_text").text("부적합");
+			pwChk = false;
+		} else {
+			$("#pwdText").attr("class", "blue_text").text("적합");
+			pwChk = true;
+		}
+
+		// 비밀번호 일치 확인 후, 비밀번호 수정했을 경우 대비
+		if (pwd != pwdCk) {
+			$("#pwdCkText").attr("class", "org_text").text("불일치");
+			pwChk2 = false;
+		} else {
+			$("#pwdCkText").attr("class", "blue_text").text("일치");
+			pwChk2 = true;
+		}
+	});
+
+	// 비밀번호 확인
+	$("#pwdCk").keyup(function() {
+		var pwd = $("#pwd").val();
+		var pwdCk = $("#pwdCk").val();
+
+		if (pwd != pwdCk) {
+			$("#pwdCkText").attr("class", "org_text").text("불일치");
+			pwChk2 = false;
+		} else {
+			console.log(pwd);
+			$("#pwdCkText").attr("class", "blue_text").text("일치");
+			pwChk2 = true;
+		}
+	});
+
+	// 가입
+	$("#okBtn").click(function() {
+
+		if (nameChk && idChk && idChk2 && pwChk && pwChk2) {
+
+			$("#signUp").attr("action", "/user/insertUserInfo.do");
+			$("#signUp").submit();
+
+		} else if ($("#name").val() == "") {
+
+			alert("이름을 입력해주세요.");
+			$("#name").focus();
+
+		} else if ($("#id").val() == "") {
+
+			alert("아이디를 입력해주세요.");
+			$("#id").focus();
+
+		} else if (nameChk == false) {
+			alert("입력하신 이름을 확인해주세요.");
+			$("#name").focus();
+
+		} else if (idChk == false) {
+			alert("입력하신 아이디를 확인해주세요.");
+			$("#id").focus();
+
+		} else if (idChk2 == null) {
+			alert("아이디 중복확인을 해주세요.");
+			$("#idCkBtn").focus();
+
+		} else if (idChk2 == false) {
+			alert("다른 아이디를 입력해주세요.");
+			$("#id").focus();
+
+		} else if (pwChk == false) {
+			alert("입력하신 비밀번호를 확인해주세요.");
+			$("#pwd").focus();
+
+		} else if (pwChk2 == false) {
+			alert("비밀번호가 일치하지 않습니다.");
+			$("#pwdCk").focus();
+
+		}
+
+	});
 	
-	// 비밀번호 일치 확인 후, 비밀번호 수정했을 경우 대비
-	if(pwd != pwdCk){	
-		$("#pwdCkText").attr("class", "org_text").text("불일치");
-		pwChk2 = false;
-	}else{
-		$("#pwdCkText").attr("class", "blue_text").text("일치");
-		pwChk2 = true;
+	function blank(e){
+		if(e.keyCode == 32){
+			alert("공백은 입력불가합니다.");
+		}
 	}
-});
-
-// 비밀번호 확인
-$("#pwdCk").keyup(function(){
-	var pwd = $("#pwd").val();
-	var pwdCk = $("#pwdCk").val();
-	
-	if(pwd != pwdCk){	
-		$("#pwdCkText").attr("class", "org_text").text("불일치");
-		pwChk2 = false;
-	}else{
-		$("#pwdCkText").attr("class", "blue_text").text("일치");
-		pwChk2 = true;
-	}
-});
-
-// 가입
-$("#okBtn").click(function(){
-	
-	if(idChk && idChk2 && pwChk && pwChk2){
-		
-		$("#signUp").attr("action", "/user/insertUserInfo.do");
-		$("#signUp").submit();
-		
-	} else if($("#name").val() == ""){
-		
-		alert("이름을 입력해주세요.");
-		$("#name").focus();
-		
-	} else if($("#id").val() == ""){
-		
-		alert("아이디를 입력해주세요.");
-		$("#id").focus();
-		
-	} else if(idChk == false){
-		alert("입력하신 아이디를 확인해주세요.");
-		$("#id").focus();
-
-	} else if(idChk2 == null){
-		alert("아이디 중복확인을 해주세요.");
-		$("#idCkBtn").focus();
-
-	} else if(idChk2 == false){
-		alert("다른 아이디를 입력해주세요.");
-		$("#id").focus();
-
-	} else if(pwChk == false){
-		alert("입력하신 비밀번호를 확인해주세요.");
-		$("#pwd").focus();
-
-	} else if(pwChk2 == false){
-		alert("비밀번호가 일치하지 않습니다.");
-		$("#pwdCk").focus();
-
-	}
-	
-});
-
 </script>
 
 </html>

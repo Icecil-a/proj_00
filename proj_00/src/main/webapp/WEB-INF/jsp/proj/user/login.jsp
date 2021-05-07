@@ -33,9 +33,8 @@
 				<div class="login_part_text text-center">
 					<div class="login_part_text_iner">
 						<h2>New to our Shop?</h2>
-						<p>There are advances being made in science and technology
-							everyday, and a good example of this is the</p>
-						<a href="registration.html" class="btn_3">회원가입</a>
+
+						<a href="/user/signUp.do" class="btn_3">회원가입</a>
 					</div>
 				</div>
 			</div>
@@ -48,11 +47,11 @@
 						<form class="row contact_form" method="post" id="loginForm"
 							novalidate="novalidate">
 							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="id" name="id" placeholder="아이디">
+								<input type="text" class="form-control" id="id" name="id" placeholder="아이디" maxlength="12">
 							</div>
 							<div class="col-md-12 form-group p_star">
 								<input type="password" class="form-control" id="pwd"
-									name="pwd" placeholder="비밀번호">
+									name="pwd" placeholder="비밀번호" maxlength="12">
 							</div>
 							<div class="col-md-12 form-group">
 <!-- 								<div class="creat_account d-flex align-items-center"> -->
@@ -129,8 +128,8 @@ $().ready(function(){
 
 
 $("#loginBtn").click(function(){
-	var inputID = $("#id").val();
-	var inputPWD = $("#pwd").val();
+	var inputID = $("#id").val().replace(/(\s*)/g, "");
+	var inputPWD = $("#pwd").val().replace(/(\s*)/g, "");
 	
 	if(inputID == ""){
 		alert("아이디를 입력해주세요.");
