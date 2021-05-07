@@ -10,21 +10,10 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>관리자 - 회원관리</title>
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/dataTables.min.css" rel="stylesheet" />
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-	crossorigin="anonymous"></script>
+<%@ include file="../includes/adminHeader.jsp"%>
+
 </head>
 
-<body class="sb-nav-fixed">
-	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-	<a class="navbar-brand" href="/main.do">TIME ZONE</a>
-	<button class="btn btn-link btn-sm order-1 order-lg-0"
-		id="sidebarToggle" href="#!">
-		<i class="fas fa-bars"></i>
-	</button>
 	</nav>
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
@@ -37,7 +26,7 @@
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-users"></i>
 						</div> 회원관리
-					</a> <a class="nav-link" href="tables.html">
+					</a> <a class="nav-link" href="/admin/prodList.do">
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-box"></i>
 						</div> 상품관리
@@ -155,7 +144,7 @@ $(".withdrawalBtn").click(function(){
 	var td = tr.children();
 	var id = td.eq(1).text();
 	
-	if(confirm(id+"을(를) 강제 탈퇴 하시겠습니까?")){
+	if(confirm(id+"의 강제탈퇴를 진행하시겠습니까?")){
 		
 		$.ajax({
 			url : "/admin/userForcedWithdrawal.do",
