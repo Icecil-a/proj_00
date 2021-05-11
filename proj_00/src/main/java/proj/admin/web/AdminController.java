@@ -28,7 +28,7 @@ public class AdminController {
 	}
 	
 	/*
-	 * 회원 목록
+	 * 회원 목록 model return String 확인
 	 */
 	@RequestMapping(value = {"/userList.do"})
 	public String userList(Model model, HttpServletRequest req) throws Exception{
@@ -39,7 +39,7 @@ public class AdminController {
 		model.addAttribute("userCount", userService.userCount());
 
 		
-		return "/admin/adminUser";
+		return "admin/adminUser";
 	}
 	
 	/*

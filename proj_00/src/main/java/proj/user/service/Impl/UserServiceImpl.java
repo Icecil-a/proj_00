@@ -25,19 +25,8 @@ public class UserServiceImpl extends EgovAbstractServiceImpl implements UserServ
 	 * 아이디 중복 확인
 	 */
 	@Override
-	public boolean userIdChk(String id) throws Exception {
-		boolean rtn = false;
-		
-    	try{
-    		rtn =  (boolean)userDAO.userIdChk(id);
-    	} catch (NullPointerException ignore) {
-			log.error("[NullPointerException] : Connection Close");
-		} catch (Exception ignore) {
-			log.error("["+ ignore.getClass() +"] Connection Close : " + ignore.getMessage());
-			throw new Exception("[" + ignore.getClass() + "]:" + ignore.getMessage());
-		}
-		
-		return rtn;
+	public String userIdChk(String id) throws Exception {		
+		return userDAO.userIdChk(id);
 	}
 
 	/*

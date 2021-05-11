@@ -70,16 +70,7 @@
 	</section>
 	<!--================login_part end =================-->
 </main>
-<!--? Search model Begin -->
-<div class="search-model-box">
-	<div class="h-100 d-flex align-items-center justify-content-center">
-		<div class="search-close-btn">+</div>
-		<form class="search-model-form">
-			<input type="text" id="search-input" placeholder="Searching key.....">
-		</form>
-	</div>
-</div>
-<!-- Search model end -->
+
 
 <!-- JS here -->
 
@@ -128,8 +119,8 @@ $().ready(function(){
 
 
 $("#loginBtn").click(function(){
-	var inputID = $("#id").val().replace(/(\s*)/g, "");
-	var inputPWD = $("#pwd").val().replace(/(\s*)/g, "");
+	var inputID = $("#id").val();
+	var inputPWD = $("#pwd").val();
 	
 	if(inputID == ""){
 		alert("아이디를 입력해주세요.");

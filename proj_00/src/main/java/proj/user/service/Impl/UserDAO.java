@@ -13,8 +13,8 @@ public class UserDAO extends EgovAbstractMapper{
 	/**
 	 * 아이디 중복 확인
 	 */
-	public boolean userIdChk(String id) throws Exception{
-		return (boolean) selectOne("userDAO.userIdChk", id);		
+	public String userIdChk(String id) throws Exception{
+		return (String) selectOne("userDAO.userIdChk", id);		
 	}
 	
 	/*

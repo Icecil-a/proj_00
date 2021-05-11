@@ -94,16 +94,7 @@
 	</div>
 </div>
 </section> <!--================login_part end =================--> </main>
-<!--? Search model Begin -->
-<div class="search-model-box">
-	<div class="h-100 d-flex align-items-center justify-content-center">
-		<div class="search-close-btn">+</div>
-		<form class="search-model-form">
-			<input onkeydown="blank(e)" type="text" id="search-input" placeholder="Searching key.....">
-		</form>
-	</div>
-</div>
-<!-- Search model end -->
+
 
 <!-- JS here -->
 
@@ -207,14 +198,13 @@
 							} else {
 								alert("사용 가능한 아이디입니다.");
 								idChk2 = true;
-								console.log(id);
 							}
 						},
 						error : function(xhr, status, error) {
 							console.log(" code : " + xhr.status
 									+ " // message : " + xhr.responseText
 									+ " // error : " + error);
-						}
+W						}
 					});
 				} else {
 					alert("사용 가능한 아이디를 입력해주세요.");
@@ -312,7 +302,7 @@
 	
 	function blank(e){
 		if(e.keyCode == 32){
-			alert("공백은 입력불가합니다.");
+			return false;
 		}
 	}
 </script>

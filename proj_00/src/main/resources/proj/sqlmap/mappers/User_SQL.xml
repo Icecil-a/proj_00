@@ -6,8 +6,9 @@
 	<!-- <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/> -->
 	<!-- <typeAlias alias="searchVO" type="egovframework.example.sample.service.SampleDefaultVO"/> -->
 
-	<!-- 아이디 중복 여부 확인 -->
-	<select id="userIdChk" parameterType="String" resultType="boolean">
+	<!-- 아이디 중복 여부 확인  count() 수정 요망--> 
+	<!-- 수정 : resultType boolean >> String 으로 변경 -->
+	<select id="userIdChk" parameterType="String" resultType="String">
 		select decode(count(*), 1, 'false', 0, 'true') from TBL_USER where ID = #{id}
 	</select>
 	
@@ -16,7 +17,7 @@
 		INSERT INTO TBL_USER(ID, PWD, NAME) VALUES (#{id}, #{pwd}, #{name})
 	</insert>
 	
-	<!-- 로그인 -->
+	<!-- 로그인 select * 수정-->
 	<select id="login" resultType="userVO">
 		select * from TBL_USER where ID = #{id} and PWD = #{pwd}
 	</select>
