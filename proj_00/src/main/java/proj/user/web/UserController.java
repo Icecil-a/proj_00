@@ -35,15 +35,14 @@ public class UserController {
 	/*
 	 * 아이디 중복확인
 	 */
+	// 수정 : boolean >> String 으로 변경
 	@RequestMapping(value = { "/userIdChk.do" })
 	@ResponseBody
 	public String userIdChk(HttpServletRequest req) throws Exception {
 
 		String id = req.getParameter("id");
 
-		boolean tf = userService.userIdChk(id);
-
-		String result = String.valueOf(tf);
+		String result = userService.userIdChk(id);
 
 		return result;
 	}
@@ -75,11 +74,11 @@ public class UserController {
 
 		}
 
-		return "user/login";
+		return "/user/login";
 	}
 
 	/*
-	 * 로그인 실행
+	 * 로그인 실행 redirect forward 확인 session
 	 */
 	@RequestMapping(value = "/loginProc.do")
 	public String loginProcess(HttpSession session, UserVO vo, RedirectAttributes redirectAttr) throws Exception {

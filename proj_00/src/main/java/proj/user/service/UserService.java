@@ -9,7 +9,7 @@ public interface UserService {
 	/*
 	 * 아이디 중복 확인
 	 */
-	boolean userIdChk(String id) throws Exception;
+	String userIdChk(String id) throws Exception;
 	
 	/*
 	 * 회원 정보 등록
